@@ -16,10 +16,30 @@ spring:
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/api/orders/**
-#        - id: auth-service
-#          uri: lb://AUTH-SERVICE
-#          predicates:
-#            - Path=/auth/**
+        - id: customer-service
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/api/customers/**
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/api/catalog/**
+        - id: stock-service
+          uri: lb://STOCK-SERVICE
+          predicates:
+            - Path=/api/stock/**
+        - id: basket-service
+          uri: lb://BASKET-SERVICE
+          predicates:
+            - Path=/api/basket/**
+        - id: purchase-service
+          uri: lb://PURCHASE-SERVICE
+          predicates:
+            - Path=/api/purchases/**
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/payments/**
 
 server:
   port: 4848
@@ -37,7 +57,3 @@ management:
       exposure:
         include: health,info
       base-path: /manage
-
-#jwt:
-#  secret: y1FIczCQjpIP5WYv9k6pbZwtt0uVNRBZFHAbcbIhdL0=
-#  expiration-ms: 3600000
